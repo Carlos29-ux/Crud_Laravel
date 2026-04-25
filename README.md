@@ -7,52 +7,267 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Universidad Tecnológica de Panamá
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Facultad de Ingeniería de Sistemas Computacionales
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fecha de Ejecución:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+23 de Abril de 2026
 
-## Learning Laravel
+## Objetivos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Implementar un Sistema CRUD en Laravel para la Gestión de Datos.  
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Aplicar la arquitectura MVC en el desarrollo del proyecto.  
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- Utilizar herramientas de Laravel para generar Modelos, Migraciones y Controladores.  
 
-## Agentic Development
+## Introducción
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 📖 Introducción
+
+Laravel es un framework de desarrollo web basado en PHP que permite crear aplicaciones modernas utilizando la arquitectura MVC, facilitando la organización del código.
+
+En este laboratorio se desarrolló un sistema CRUD para la gestión de datos, aplicando el patrón Modelo-Vista-Controlador (MVC). Durante el proceso se configuró el entorno de trabajo, se instalaron dependencias y se implementaron operaciones para crear, actualizar y eliminar registros.
+
+## ⚙️ Requisitos Previos
+
+Para la ejecución del laboratorio se requiere contar con el siguiente ecosistema de desarrollo:
+
+### Tecnologías utilizadas
+
+- 🐘 PHP 8.0 o superior  
+- 📦 Composer (última versión estable)  
+- ⚙️ Laravel (framework PHP)  
+- 🌐 Servidor web: Apache   
+- 🛢️ Base de datos MySQL  
+- 💻 Entorno de desarrollo local: XAMPP / WampServer 
+- 📝 Editor de código: Visual Studio Code  
+- 🟢 Node.js y NPM (para manejo de dependencias frontend)  
+
+### 🖥️ Sistema Operativo
+
+- Windows 10 / 11  
+
+## 🔧 Instalación y configuración del proyecto
+
+A continuación, se describe el proceso completo para instalar y ejecutar el proyecto Laravel desde cero. Estos pasos permiten que cualquier usuario pueda clonar el repositorio y poner en funcionamiento la aplicación correctamente.
+
+---
+
+### 1. Clonar o crear el proyecto
+
+Si el proyecto ya está en un repositorio, se debe clonar:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone URL_DEL_REPOSITORIO
+cd login-app
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Si se crea desde cero:
 
-## Contributing
+```bash
+laravel new login-app
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+### 2. Instalación de dependencias (Composer)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+composer install
+```
 
-## Security Vulnerabilities
+```bash
+npm install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+npm run dev
+```
 
-## License
+Estos comandos instalan las dependencias necesarias del proyecto. "composer install" descarga las librerías del backend definidas en composer.json en la carpeta vendor/. "npm install2 instala las dependencias del frontend, y "npm run dev" compila los archivos CSS y JavaScript para su correcto funcionamiento.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+### 3. Configuración del archivo `.env`
+
+Laravel utiliza un archivo `.env` para manejar variables de entorno.
+
+Primero, se debe crear copiando el archivo de ejemplo:
+
+```bash
+cp .env.example .env
+```
+
+Luego se configura la base de datos:
+
+```env
+DB_DATABASE=crud_rapido
+DB_USERNAME=root
+DB_PASSWORD=kamado29
+```
+En mi caso, tiene contraseña 
+
+Este paso es fundamental, ya que permite la conexión entre Laravel y la base de datos.
+
+---
+
+## 🛠️ Comandos utilizados
+
+### 1. Limpieza de configuración
+
+```bash
+php artisan config:clear  
+php artisan cache:clear  
+php artisan config:cache 
+``` 
+
+Estos comandos permiten limpiar y actualizar la configuración del proyecto para asegurar que los cambios sean aplicados correctamente.
+
+---
+
+### 2. Creación del modelo y migración
+
+```bash
+php artisan make:model Product -m  
+```
+
+Crea el modelo `Product` junto con una migración para la tabla `products`.
+
+---
+
+### 3. Ejecución de migraciones
+
+```bash
+php artisan migrate  
+```
+
+Ejecuta las migraciones y crea las tablas en la base de datos.
+
+```bash
+php artisan migrate:fresh  
+```
+
+Elimina todas las tablas y las vuelve a crear desde cero.
+
+---
+
+### 4. Generación del CRUD
+
+```bash
+composer require ibex/crud-generator --dev  
+php artisan vendor:publish --tag=crud  
+php artisan make:crud products  
+```
+
+Permite generar automáticamente los componentes del CRUD como modelos, controladores, vistas y rutas.
+
+---
+
+### 5. Implementación de interfaz (Laravel UI)
+
+```bash
+composer require laravel/ui --dev  
+php artisan ui bootstrap  
+```
+
+Instala las herramientas de interfaz de Laravel para generar vistas básicas con Bootstrap.
+
+---
+
+### 6. Actualización de autoload
+
+```bash
+composer dump-autoload  
+```
+
+Actualiza el cargador de clases de Composer para reconocer nuevos archivos.
+
+---
+
+### 6. Ejecución del servidor
+
+```bash
+php artisan serve  
+```
+
+Inicia el servidor de desarrollo.
+
+La aplicación estará disponible en: 
+
+http://127.0.0.1:8000/  --Login
+
+http://127.0.0.1:8000/products  -- Crud Generado
+
+
+## 🖼️ Resultados
+
+### Registro
+![Registro](images/registro.png)
+
+### CRUD
+![CRUD](images/crud.png)
+
+## 📚 Referencias
+
+A continuación, algunas de las fuentes consultadas para el desarrollo del laboratorio:
+
+Laravel. (2026). Documentación oficial de Laravel. https://laravel.com/docs
+
+Informática DP. (2022, January 20). CRUD RÁPIDO - LARAVEL [Video]. YouTube. https://www.youtube.com/watch?v=j5baJsM_Adc 
+
+## 👤 Información del Estudiante
+
+Este laboratorio ha sido desarrollado por el estudiante de la Universidad Tecnológica de Panamá:
+
+Nombre: Carlos Concepción
+
+Correo: carlos.concepcion2@utp.ac.pa
+
+Curso: Desarrollo de Software VII
+
+Instructor: Irina Fong
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
