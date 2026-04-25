@@ -202,7 +202,7 @@ http://127.0.0.1:8000/products  -- Crud Generado
 
 ## 🖼️ Resultados
 
-### Registro
+### REGISTRO
 ![REGISTRO](images/registro.png)
 
 ### CRUD
