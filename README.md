@@ -25,8 +25,6 @@
 
 ## Introducción
 
-## 📖 Introducción
-
 Laravel es un framework de desarrollo web basado en PHP que permite crear aplicaciones modernas utilizando la arquitectura MVC, facilitando la organización del código.
 
 En este laboratorio se desarrolló un sistema CRUD para la gestión de datos, aplicando el patrón Modelo-Vista-Controlador (MVC). Durante el proceso se configuró el entorno de trabajo, se instalaron dependencias y se implementaron operaciones para crear, actualizar y eliminar registros.
@@ -205,7 +203,7 @@ http://127.0.0.1:8000/products  -- Crud Generado
 ## 🖼️ Resultados
 
 ### Registro
-![Registro](images/registro.png)
+![REGISTRO](images/registro.png)
 
 ### CRUD
 ![CRUD](images/crud.png)
